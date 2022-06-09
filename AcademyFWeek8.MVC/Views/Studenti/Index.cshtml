@@ -1,0 +1,36 @@
+﻿@model List<StudenteViewModel>
+
+<h1>Ecco la Lista degli Studenti</h1>
+<a type=button class= "btn btn-primary" asp-controller="Studenti" asp-action="Create">Inserisci nuovo studente</a>
+<table class="table table-hover table-bordered table table-striped">
+    <thead>
+        <tr>
+            <th>Cognome</th>
+            <th>Nome</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Cognome</td>
+                <td>@item.Nome</td>
+                <td>
+                    <a asp-controller="Studenti" asp-action="Details" asp-route-id="@item.ID" class="btn btn-primary">Visualizza Dettagli</a>
+                    <a class= "btn btn-primary" asp-controller="Studenti" asp-action="Edit" asp-route-id="@item.ID">Modifica</a>
+                    <a class= "btn btn-danger" asp-controller="Studenti" asp-action="Delete" asp-route-id="@item.ID">Elimina</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Totale</th>
+            <th>@Model.Count</th>
+            <th></th>
+        </tr>
+    </tfoot>
+</table>
+

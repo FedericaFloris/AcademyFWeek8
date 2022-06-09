@@ -1,0 +1,38 @@
+﻿@model ICollection<DocenteViewModel>
+<h1>Ecco la lista dei Docenti</h1>
+
+
+<a type=button class="btn btn-primary" asp-controller="Docenti" asp-action="Create">Inserisci nuovo docente</a>
+<table class="table table-hover table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Cognome</th>
+            <th>Nome</th>
+            @*<th>Descrizione</th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.Cognome</td>
+                <td>@item.Nome</td>
+                @*<td>@item.Descrizione</td>*@
+                <td> 
+                   @* pulsante "Visualizza Dettagli"*@
+                   <a asp-controller="Docenti" asp-action="Details" asp-route-id="@item.ID" class="btn btn-primary">Visualizza dettagli</a>
+                   <a asp-controller="Docenti" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-primary">Modifica</a>
+                   <a asp-controller="Docenti" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Elimina</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Totale</th>
+            <th>@Model.Count</th>
+            <th></th>
+        </tr>
+    </tfoot>
+</table>

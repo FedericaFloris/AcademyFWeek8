@@ -1,0 +1,56 @@
+﻿@model NumeroViewModel
+
+@{
+    //Posso aggiungere altri dati nella View Bag
+    ViewBag.AltraStringa = "Questa è una nuova stringa contenuta nella variabile ALTRASTRINGA della mia View Bag";
+    var secondoNumero = ViewData["SecondoNumero"] as NumeroViewModel;
+}
+
+
+<h1>Pagina di Prova</h1>
+<br />
+<p>Questa è soltanto una prima prova</p>
+
+@{
+    var mese = DateTime.Now.Month; //questo è un commento in un blocco "C#"
+}
+
+@*Questo è un commento*@
+
+<p>Il valore numerico del mese corrente è : @mese</p>
+
+@{
+    string miaStringa= @"Il mio argomento preferito è ""MVC""";
+}
+<p>@miaStringa</p>
+
+
+<h3>Esempio di passaggio dati tramite model</h3>
+@Model.ValoreNumerico - @Model.NumeroInLettere
+<br />
+<br />
+<br />
+<h3>Esempio di Passaggio dati tramite ViewBag</h3>
+@ViewBag.Messaggio
+<br />
+@ViewBag.Valore
+<br />
+@ViewBag.PrimoNumero.ValoreNumerico - @ViewBag.PrimoNumero.NumeroInLettere
+<br />
+@ViewBag.AltraStringa
+<br />
+<br />
+<br />
+<h3>Esempio di passaggio dati tramite ViewData</h3>
+@ViewData["MessaggioVD"]
+<br />
+@ViewData["ValoreVD"]
+<br />
+@secondoNumero.ValoreNumerico - @secondoNumero.NumeroInLettere 
+
+<partial name= "_PezzoSempreUguale" model="secondoNumero"/>
+
+<email to-user ="pippo@mail.it"></email>
+
+<avanade testo-bottone="Sito Avanade" lingua-sito="it-it" sito="https://www.avanade.com"></avanade>
+

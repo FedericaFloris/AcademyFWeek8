@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AcademyFWeek8.Core\AcademyFWeek8.Core.csproj" />
+    <ProjectReference Include="..\AcademyFWeek8.RepositoryADO\AcademyFWeek8.RepositoryADO.csproj" />
+    <ProjectReference Include="..\AcademyFWeek8.RepositoryEF\AcademyFWeek8.RepositoryEF.csproj" />
+    <ProjectReference Include="..\AcademyFWeek8.RepositoryMOCK\AcademyFWeek8.RepositoryMOCK.csproj" />
+  </ItemGroup>
+
+</Project>

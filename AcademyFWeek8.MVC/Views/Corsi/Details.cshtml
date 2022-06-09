@@ -1,0 +1,35 @@
+﻿@model CorsoViewModel
+
+
+<h1>Ecco i dettagli del corso @Model.CorsoCodice - @Model.Nome </h1>
+<p>Desccrizione: @Model.Descrizione</p>
+<p>Di Seguito l'elenco degli studenti iscritti al corso</p>
+
+<table class="table table-hover table-bordered table table-striped">
+    <thead>
+        <tr>
+            <th>Cognome</th>
+            <th>Nome</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Studenti)
+        {
+            <tr>
+                <td>@item.Cognome</td>
+                <td>@item.Nome</td>
+                <th>
+                    <a asp-controller="Studenti" asp-action="Details" asp-route-id="@item.ID" class="btn btn-primary">Visualizza Dettagli</a>
+                </th>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Totale</th>
+            <th>@Model.Studenti.Count</th>
+            <th></th>
+        </tr>
+    </tfoot>
+</table>

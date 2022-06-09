@@ -1,0 +1,46 @@
+﻿@model LezioneViewModel
+
+<h1>Inserisci nuovo docente</h1>
+
+<form method="post">
+ 
+    <div class="form-group">
+    <label asp-for="LezioneId"></label>
+    <input asp-for="LezioneId" class="form-control" type="hidden"/>
+    <span asp-validation-for="LezioneId" class="Text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="DataOraInizio"></label>
+    <input asp-for="DataOraInizio" class="form-control" />
+    <span asp-validation-for="DataOraInizio" class="Text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="Durata"></label>
+    <input asp-for="Durata" class="form-control" />
+    <span asp-validation-for="Durata" class="Text-danger"></span>
+</div>
+
+
+<div class="form-group">
+    <label asp-for="Aula"></label>
+    <input asp-for="Aula" class="form-control" />
+    <span asp-validation-for="Aula" class="Text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="DocenteID"></label>
+    <input asp-for="DocenteID" class="form-control" />
+    <span asp-validation-for="DocenteID" class="Text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="CorsoCodice"></label>
+    <input asp-for="CorsoCodice" class="form-control" />
+    <span asp-validation-for="CorsoCodice" class="Text-danger"></span>
+</div>
+
+
+<input type="submit" value="inserisci" class="btn btn-primary" />
+<input type="reset" value="Reset" class="btn btn-primary " />
+<a class="btn btn-primary " asp-controller="Lezioni" asp-action="Index">Indietro</a>
+</form>
