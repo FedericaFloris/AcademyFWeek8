@@ -77,6 +77,18 @@ namespace AcademyFWeek8.MVC.Helper
                 CorsoCodice = lezione.CorsoCodice,
             };
         }
+        public static UtenteLoginViewModel ToUtenteViewModel(this Utente utente)
+        {
+            return new UtenteLoginViewModel()
+            {
+                id = utente.Id,
+                Username = utente.Username,
+                Password = utente.Password,
+                ReturnUrl = utente.ReturnUrl,
+                Ruolo = utente.Ruolo,
+
+            };
+        }
 
         public static Corso ToCorso(this CorsoViewModel corsoViewModel)
         {
@@ -126,6 +138,21 @@ namespace AcademyFWeek8.MVC.Helper
                 
 
                 
+            };
+        }
+        public static Utente ToUtenteLogin(this UtenteLoginViewModel utenteLoginViewModel)
+        {
+           
+            return new Utente()
+            {
+               Id = utenteLoginViewModel.id,
+               Username = utenteLoginViewModel.Username,
+               Password = utenteLoginViewModel.Password,    
+               ReturnUrl = utenteLoginViewModel.ReturnUrl,
+               Ruolo=utenteLoginViewModel.Ruolo,
+
+
+
             };
         }
 

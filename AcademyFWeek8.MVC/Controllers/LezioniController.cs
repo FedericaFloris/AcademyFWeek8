@@ -34,8 +34,8 @@ namespace AcademyFWeek8.MVC.Controllers
             var lezione = BL.GetAllLezioni().FirstOrDefault(c => c.LezioneId == id);
 
             var lezioneViewModel = lezione.ToLezioneViewModel();
-            lezioneViewModel.Docente.Nome = lezione.Docente.Nome;
-            lezioneViewModel.Docente.Cognome = lezione.Docente.Cognome;
+            //lezioneViewModel.Docente.Nome = lezione.Docente.Nome;
+            //lezioneViewModel.Docente.Cognome = lezione.Docente.Cognome;
             
             return View(lezioneViewModel);
         }

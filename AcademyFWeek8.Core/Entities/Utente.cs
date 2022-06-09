@@ -11,6 +11,7 @@ namespace AcademyFWeek8.Core.Entities
         public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+        public string ReturnUrl { get; set; }
         public Ruolo Ruolo { get; set; }
     }
     public enum Ruolo

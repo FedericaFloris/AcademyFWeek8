@@ -230,6 +230,45 @@ namespace AcademyFWeek8.Core.BusinessLayer
             return utentiRepo.GetByUsername(username);
         }
 
+        public Esito AggiungiUtente(Utente nuovoUtente)
+        {
+            Utente utenteRecuperato = utentiRepo.GetByUsername(nuovoUtente.Username);
+            if (utenteRecuperato == null)
+            {
+                utentiRepo.Add(nuovoUtente);
+                return new Esito() { IsOk = true, Messaggio = "Utente aggiunto correttamente" };
+            }
+            return new Esito() { IsOk = false, Messaggio = "Impossibile aggiungere utente" };
+        }
+
+        public Esito ModificaPasswordUtente(string utenteDaModificare, string nuovaPassword)
+        {
+            Utente utenteRecuperato = utentiRepo.GetByUsername(utenteDaModificare);
+            if (utenteRecuperato == null)
+            {
+                return new Esito() { IsOk = false, Messaggio = "Nessun utente corrispondente al codice inserito" };
+            }
+            utenteRecuperato.Password = nuovaPassword;
+
+            utentiRepo.Update(utenteRecuperato);
+            return new Esito() { IsOk = true, Messaggio = "Utente aggiornato correttamente" };
+        }
+
+        public Esito EliminaUtente(string utenteDaEliminare)
+        {
+            var utenteRecuperato = utentiRepo.GetByUsername(utenteDaEliminare);
+            if (utenteRecuperato == null)
+            {
+                return new Esito() { IsOk = false, Messaggio = "Nessun utente corrispondente al codice inserito" };
+            }
+            utentiRepo.Delete(utenteRecuperato);
+            return new Esito() { IsOk = true, Messaggio = "Utente eliminata correttamente" };
+        }
+
+        public List<Utente> GetAllUtente()
+        {
+            return utentiRepo.GetAll();
+        }
     }
 
    
